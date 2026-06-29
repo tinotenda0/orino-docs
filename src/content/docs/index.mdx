@@ -3,4 +3,38 @@ title: Orino Documentation
 description: SEO and GEO audit tool for developers
 ---
 
-Welcome to the Orino documentation.
+import { Card, CardGrid, LinkCard } from '@astrojs/starlight/components';
+
+Orino is a command-line SEO and GEO audit tool for developers. One command checks your Next.js, Astro, SvelteKit, Nuxt, or plain HTML site for crawlability problems, metadata gaps, Core Web Vitals failures, and GEO visibility issues.
+
+```bash
+npx @bynaree/orino audit
+```
+
+## What Orino checks
+
+<CardGrid>
+  <Card title="Crawlability" icon="magnifier">
+    robots.txt rules, sitemap presence and validity, canonical tags, indexability signals, and redirect chains.
+  </Card>
+  <Card title="Metadata" icon="document">
+    Title tags, meta descriptions, Open Graph tags, Twitter Card tags, and metadata base configuration.
+  </Card>
+  <Card title="Structured Data" icon="list-format">
+    JSON-LD presence, schema.org types, required field completeness, and duplicate schema detection.
+  </Card>
+  <Card title="Performance" icon="rocket">
+    Core Web Vitals (LCP, CLS, INP) via PageSpeed Insights, image optimisation, and render-blocking resources.
+  </Card>
+  <Card title="On-Page" icon="pencil">
+    Heading hierarchy, H1 presence, image alt text, internal link anchor text quality, and thin content.
+  </Card>
+  <Card title="GEO Readiness" icon="star">
+    Crawler access for GPTBot, PerplexityBot, and ClaudeBot. llms.txt presence. Quick-answer block detection.
+  </Card>
+  <Card title="Architecture" icon="puzzle">
+    Internal link graph, orphaned pages, and crawl depth from the homepage.
+  </Card>
+</CardGrid>
+
+<LinkCard title="Quick Start" href="/docs/quick-start" description="Run your first audit in under two minutes." />
