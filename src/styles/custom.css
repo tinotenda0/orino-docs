@@ -1,0 +1,30 @@
+/* Orino brand green scale */
+:root {
+  --orino-green-950: #052e16;
+  --orino-green-900: #14532d;
+  --orino-green-800: #166534;
+  --orino-green-700: #15803d;
+  --orino-green-600: #16a34a;
+  --orino-green-500: #22c55e;
+  --orino-green-400: #4ade80;
+  --orino-green-300: #86efac;
+  --orino-green-200: #bbf7d0;
+  --orino-green-100: #dcfce7;
+  --orino-green-50:  #f0fdf4;
+}
+
+/* Light mode accent */
+:root,
+::backdrop {
+  --sl-color-accent-low:  var(--orino-green-50);
+  --sl-color-accent:      var(--orino-green-600);
+  --sl-color-accent-high: var(--orino-green-900);
+}
+
+/* Dark mode accent */
+:root[data-theme='dark'],
+::backdrop[data-theme='dark'] {
+  --sl-color-accent-low:  var(--orino-green-950);
+  --sl-color-accent:      var(--orino-green-400);
+  --sl-color-accent-high: var(--orino-green-200);
+}

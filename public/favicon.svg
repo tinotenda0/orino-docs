@@ -1,0 +1,14 @@
+<svg class="orino-monogram orino-monogram--dark " width="128" height="128" viewBox="0 0 128 128" role="img" aria-label="Orino dark monogram" xmlns="http://www.w3.org/2000/svg" style="--stroke: 28; --corner-radius: 24; --dot-size: 25; --dot-gap: 12; --orino-bg: #070A08; --orino-logo: #F4F7F2; --orino-accent: #73E59E; --orino-product-text: #F4F7F2; --orino-product-rule: rgba(244,247,242,.28); --orino-product-marker: #73E59E; --orino-product-letter-spacing: 4px;"><style>
+.orino-logo__stroke{fill:none;stroke:var(--orino-logo);stroke-width:var(--stroke);stroke-linecap:butt;stroke-linejoin:round}
+.orino-logo__fill{fill:var(--orino-logo)}
+.orino-logo__accent{fill:var(--orino-accent)}
+.orino-logo__letters--mono .orino-logo__accent,.orino-logo__letters--mono .orino-logo__fill{fill:var(--orino-logo)}
+.orino-logo__secondary-rule{stroke:var(--orino-product-rule);stroke-width:1.5;vector-effect:non-scaling-stroke}
+.orino-logo__secondary-marker{fill:var(--orino-product-marker)}
+.orino-logo__secondary-text{fill:var(--orino-product-text);font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;font-size:30px;font-weight:680;letter-spacing:var(--orino-product-letter-spacing);text-transform:uppercase}
+.orino-logo__guides line{stroke:var(--orino-accent);stroke-width:1;stroke-dasharray:5 8;vector-effect:non-scaling-stroke}
+.orino-logo__guides rect{fill:transparent;stroke:rgba(244,247,242,.28);stroke-width:1;vector-effect:non-scaling-stroke}
+.orino-monogram__tile{fill:var(--orino-bg);stroke:rgba(244,247,242,.18);stroke-width:1}
+.orino-monogram__stem{fill:var(--orino-logo)}
+.orino-monogram__dot{fill:var(--orino-accent)}
+</style><rect class="orino-monogram__tile" x="0" y="0" width="128" height="128" rx="24" ry="24"/><rect class="orino-monogram__stem" x="50" y="54" width="28" height="58" rx="5.6" ry="5.6"/><rect class="orino-monogram__dot" x="51.5" y="17" width="25" height="25" rx="5" ry="5"/></svg>

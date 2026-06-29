@@ -1,0 +1,14 @@
+<svg class="orino-logo  " viewBox="0 0 596 214" role="img" aria-label="orino" xmlns="http://www.w3.org/2000/svg" style="--logo-height: 164px; --stroke: 28; --letter-spacing: 0px; --corner-radius: 24; --dot-size: 25; --dot-gap: 12; --orino-logo: #F4F7F2; --orino-accent: #73E59E; --orino-product-text: #C8D0C7; --orino-product-rule: #2A322D; --orino-product-marker: #73E59E; --orino-product-letter-spacing: 4px; --orino-bg: #070A08;" width="596" height="214"><style>
+.orino-logo__stroke{fill:none;stroke:var(--orino-logo);stroke-width:var(--stroke);stroke-linecap:butt;stroke-linejoin:round}
+.orino-logo__fill{fill:var(--orino-logo)}
+.orino-logo__accent{fill:var(--orino-accent)}
+.orino-logo__letters--mono .orino-logo__accent,.orino-logo__letters--mono .orino-logo__fill{fill:var(--orino-logo)}
+.orino-logo__secondary-rule{stroke:var(--orino-product-rule);stroke-width:1.5;vector-effect:non-scaling-stroke}
+.orino-logo__secondary-marker{fill:var(--orino-product-marker)}
+.orino-logo__secondary-text{fill:var(--orino-product-text);font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;font-size:30px;font-weight:680;letter-spacing:var(--orino-product-letter-spacing);text-transform:uppercase}
+.orino-logo__guides line{stroke:var(--orino-accent);stroke-width:1;stroke-dasharray:5 8;vector-effect:non-scaling-stroke}
+.orino-logo__guides rect{fill:transparent;stroke:rgba(244,247,242,.28);stroke-width:1;vector-effect:non-scaling-stroke}
+.orino-monogram__tile{fill:var(--orino-bg);stroke:rgba(244,247,242,.18);stroke-width:1}
+.orino-monogram__stem{fill:var(--orino-logo)}
+.orino-monogram__dot{fill:var(--orino-accent)}
+</style><g class="orino-logo__letters"><g class="orino-logo__part" data-logo-part="o1"><rect class="orino-logo__stroke" x="30.5" y="90" width="118" height="88" rx="24" ry="24"/></g><g class="orino-logo__part" data-logo-part="r"><rect class="orino-logo__fill" x="168.5" y="76" width="28" height="116" rx="7" ry="7"/><rect class="orino-logo__fill" x="168.5" y="76" width="86" height="28" rx="14" ry="14"/></g><g class="orino-logo__part" data-logo-part="i"><rect class="orino-logo__fill" x="262.5" y="76" width="28" height="116" rx="7" ry="7"/></g><g class="orino-logo__part" data-logo-part="dot"><rect class="orino-logo__accent" x="264" y="39" width="25" height="25" rx="5" ry="5"/></g><g class="orino-logo__part" data-logo-part="n"><rect class="orino-logo__fill" x="308.5" y="76" width="28" height="116" rx="7" ry="7"/><rect class="orino-logo__fill" x="402.5" y="76" width="28" height="116" rx="7" ry="7"/><rect class="orino-logo__fill" x="308.5" y="76" width="122" height="28" rx="14" ry="14"/></g><g class="orino-logo__part" data-logo-part="o2"><rect class="orino-logo__stroke" x="451.5" y="90" width="114" height="88" rx="24" ry="24"/></g></g></svg>
