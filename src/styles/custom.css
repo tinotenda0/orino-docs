@@ -22,8 +22,7 @@
 }
 
 /* Dark mode accent */
-:root[data-theme='dark'],
-::backdrop[data-theme='dark'] {
+:root[data-theme='dark'] {
   --sl-color-accent-low:  var(--orino-green-950);
   --sl-color-accent:      var(--orino-green-400);
   --sl-color-accent-high: var(--orino-green-200);
