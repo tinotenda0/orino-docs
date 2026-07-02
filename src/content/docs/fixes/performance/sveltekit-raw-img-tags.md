@@ -74,7 +74,7 @@ The plugin reads the source image dimensions automatically, so you do not need t
 Re-run the audit:
 
 ```bash
-npx orino audit
+npx @bynaree/orino audit
 ```
 
 The "Raw `<img>` tags" check should pass. In the built output, `<enhanced:img>` generates a `<picture>` element with WebP and AVIF sources and a fallback `<img>`.

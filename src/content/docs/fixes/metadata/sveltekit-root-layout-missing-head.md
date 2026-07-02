@@ -75,7 +75,7 @@ curl -s https://example.com | grep -i 'og:image'
 Re-run the audit to confirm:
 
 ```bash
-npx orino audit .
+npx @bynaree/orino audit
 ```
 
 ## Related fixes

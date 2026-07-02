@@ -66,7 +66,7 @@ img {
 Re-run the audit:
 
 ```bash
-npx orino audit https://yourdomain.com
+npx @bynaree/orino audit --url https://yourdomain.com
 ```
 
 The "Images missing explicit dimensions" check should pass. In the rendered HTML, `<NuxtImg>` outputs a standard `<img>` with explicit `width` and `height` attributes.

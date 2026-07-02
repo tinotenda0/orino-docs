@@ -93,7 +93,7 @@ curl -s https://example.com | grep -i '<title'
 Re-run the audit:
 
 ```bash
-npx orino audit .
+npx @bynaree/orino audit
 ```
 
 ## Related fixes

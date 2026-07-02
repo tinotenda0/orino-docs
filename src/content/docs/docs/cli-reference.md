@@ -36,7 +36,7 @@ For `--report-txt`, `--report-md`, and `--report-pdf`, the Default column shows 
 
 | Variable | Description |
 |----------|-------------|
-| `ORINO_PSI_KEY` | Google PageSpeed Insights API key. Equivalent to `--psi-key`. Takes priority over the flag when both are set. |
+| `ORINO_PSI_KEY` | Google PageSpeed Insights API key. Equivalent to `--psi-key`. The flag takes priority when both are set. |
 | `CI` | When set to any non-empty value, disables all interactive prompts. Set automatically by most CI providers. |
 
 ## Modes
@@ -63,8 +63,9 @@ Passing `--no-codebase` without `--url` will trigger the URL prompt in interacti
 |------|---------|
 | `0` | Audit completed with no critical issues |
 | `1` | One or more critical issues found |
+| `2` | Audit could not run — no supported framework detected and no URL provided |
 
-Exit codes let you integrate Orino into CI/CD pipelines. A non-zero exit will fail the step, blocking a deploy when critical SEO issues are present.
+Exit codes let you integrate Orino into CI/CD pipelines. A non-zero exit will fail the step, blocking a deploy when critical SEO issues are present. Exit code `2` applies in every output mode, including `--json` and `--quiet`, so a misconfigured CI job fails loudly instead of reporting an empty perfect score.
 
 ## CI/CD usage
 

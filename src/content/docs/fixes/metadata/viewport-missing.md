@@ -164,7 +164,7 @@ curl -s https://example.com | grep -i viewport
 You should see `content="width=device-width, initial-scale=1"` in the output. Re-run the audit:
 
 ```bash
-npx orino audit https://example.com
+npx @bynaree/orino audit --url https://example.com
 ```
 
 ## Related fixes

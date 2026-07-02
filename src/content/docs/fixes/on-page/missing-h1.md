@@ -104,7 +104,7 @@ curl -s https://yourdomain.com | grep -i '<h1'
 You should see your H1 in the output. Or re-run the audit:
 
 ```bash
-npx orino audit https://yourdomain.com
+npx @bynaree/orino audit --url https://yourdomain.com
 ```
 
 The `missing-h1` check should now pass.

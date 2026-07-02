@@ -77,7 +77,7 @@ Only apply `priority` or `fetchpriority="high"` to the single LCP image. Marking
 Re-run the audit:
 
 ```bash
-npx orino audit https://yourdomain.com
+npx @bynaree/orino audit --url https://yourdomain.com
 ```
 
 You can also confirm in Chrome DevTools. In the Network panel, the LCP image should show `Priority: Highest`. In a Lighthouse report, the "Largest Contentful Paint element" entry should no longer show a lazy-load warning.

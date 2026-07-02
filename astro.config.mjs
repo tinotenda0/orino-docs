@@ -31,6 +31,10 @@ export default defineConfig({
 					],
 				},
 				{
+					label: 'Changelog',
+					items: [{ autogenerate: { directory: 'changelog' } }],
+				},
+				{
 					label: 'Fix Pages — Crawlability',
 					items: [{ autogenerate: { directory: 'fixes/crawlability' } }],
 				},

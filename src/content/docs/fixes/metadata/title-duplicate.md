@@ -13,6 +13,10 @@ Google uses the title tag to understand what a page is about. When multiple page
 
 Each page should have a unique, descriptive title that reflects its specific content.
 
+:::note
+For plain HTML projects, Orino compares titles across every HTML file in the project. For live-URL audits, only the homepage is currently fetched, so this check reports as skipped rather than guessing — cross-page uniqueness cannot be verified from a single page.
+:::
+
 ## How to fix it
 
 Give every page a distinct title. The easiest pattern is `Page Name | Brand Name`. The page name changes per page, the brand name stays the same.
@@ -117,7 +121,7 @@ curl -s https://example.com/about | grep -i '<title'
 Both should return different title values. Re-run the audit to confirm:
 
 ```bash
-npx orino audit https://example.com
+npx @bynaree/orino audit --url https://example.com
 ```
 
 ## Related fixes

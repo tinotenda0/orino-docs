@@ -63,7 +63,7 @@ curl -s https://example.com/about | grep -i '<title'
 The output should include your brand name appended to the page title. Re-run the audit:
 
 ```bash
-npx orino audit .
+npx @bynaree/orino audit
 ```
 
 ## Related fixes

@@ -65,7 +65,7 @@ For decorative images that do not need SEO value or optimisation — tiny icons,
 Re-run the audit:
 
 ```bash
-npx orino audit
+npx @bynaree/orino audit
 ```
 
 The "Raw `<img>` tags" check should pass. You can also inspect the built HTML: optimised images will have `.webp` or `.avif` extensions and explicit `width`/`height` attributes.

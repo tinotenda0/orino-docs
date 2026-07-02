@@ -60,11 +60,13 @@ All interactive prompts are disabled when `CI` is set, when `--json` is passed, 
 
 ## Reading the output
 
-Results are split into three sections.
+Results are split into four sections.
 
 **Critical issues** are flagged in red. Each one deducts 10 points from your score. A single failed critical also sets the process exit code to 1, which fails CI builds. Fix these before addressing anything else.
 
 **Warnings** are flagged in yellow. Each failed warning deducts 3 points. They reduce ranking and GEO visibility but do not block crawlers or indexing.
+
+**Info suggestions** are flagged in cyan and do not affect the score — things like a missing title template or PageSpeed improvement opportunities reported by Lighthouse.
 
 **Passed checks** are listed in green. Orino shows the first five and summarises the rest with a count.
 

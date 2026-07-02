@@ -51,7 +51,7 @@ Do not guess the dimensions. If the `width`/`height` values you set do not match
 Re-run the audit:
 
 ```bash
-npx orino audit https://yourdomain.com
+npx @bynaree/orino audit --url https://yourdomain.com
 ```
 
 The "Images missing explicit dimensions" check should pass. To confirm CLS is resolved, run a PageSpeed Insights report and look for the CLS score under Core Web Vitals.

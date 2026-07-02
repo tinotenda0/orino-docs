@@ -15,6 +15,10 @@ Uppercase letters introduce a related problem: a page accessible at both `/About
 
 The convention for web URLs is lowercase, hyphen-separated. This check flags any route that departs from it.
 
+:::note
+Dynamic parameter placeholders such as `[productId]`, `[...slug]`, or `[[...slug]]` are part of your framework's routing syntax, not the final URL — they are excluded from this check. Only literal path segments are flagged.
+:::
+
 ## How to fix it
 
 Rename routes to use lowercase and hyphens. The approach differs per framework.
@@ -86,7 +90,7 @@ When you rename a live route, the old URL stops working. Before deploying, set u
 Re-run the audit:
 
 ```bash
-npx orino audit
+npx @bynaree/orino audit
 ```
 
 The check scans all detected route paths for underscores and uppercase in path segments. Once renamed — with redirects in place — the check passes.

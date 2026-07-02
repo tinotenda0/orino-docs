@@ -133,7 +133,7 @@ curl -s https://example.com | grep -i '<title'
 You should see your `<title>` tag in the output. Alternatively, re-run the audit:
 
 ```bash
-npx orino audit https://example.com
+npx @bynaree/orino audit --url https://example.com
 ```
 
 The `title-missing` check should now pass.

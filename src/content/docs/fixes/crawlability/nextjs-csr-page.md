@@ -1,15 +1,18 @@
 ---
-title: CSR-only page component (App Router)
-description: Resolve pages that disable server-side rendering by placing 'use client' at the page component level.
+title: Client component used as page (App Router)
+description: Resolve pages that place 'use client' at the page component level, losing metadata exports and server-fetched content.
 sidebar:
   badge:
-    text: Critical
-    variant: danger
+    text: Warning
+    variant: caution
 ---
 
 ## What this means
 
-`page.tsx` has `'use client'` at the top level. That directive tells Next.js to render the entire route in the browser only. Googlebot and AI crawlers receive an empty HTML shell with no content to index.
+`page.tsx` has `'use client'` at the top level. Client components are still server-rendered on the initial request, but using one as a route file costs you two things that matter for SEO:
+
+1. **No metadata.** Client components cannot export `metadata` or `generateMetadata` — Next.js throws if they try. The page falls back to whatever the nearest layout provides, so every route under it shares the same generic title and description.
+2. **Content fetched in effects is invisible.** Any data loaded with `useEffect`/`useSWR`/client-side fetching is not in the initial HTML. Crawlers and AI systems that read the raw response never see it.
 
 ## How to fix it
 

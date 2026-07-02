@@ -144,7 +144,7 @@ curl -s https://example.com | grep -i '<html'
 Confirm the `lang` attribute appears with a valid value, such as `lang="en-GB"`. Re-run the audit:
 
 ```bash
-npx orino audit https://example.com
+npx @bynaree/orino audit --url https://example.com
 ```
 
 ## Related fixes

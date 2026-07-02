@@ -74,7 +74,7 @@ Images from the `public/` directory are not processed by `<Image>`. You must add
 Re-run the audit from your project root:
 
 ```bash
-npx orino audit
+npx @bynaree/orino audit
 ```
 
 The "Images missing explicit dimensions" check should pass. To confirm, inspect the built HTML — `<Image>` outputs `width` and `height` attributes matching the source image dimensions.

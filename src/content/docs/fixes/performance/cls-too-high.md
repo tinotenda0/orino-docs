@@ -48,7 +48,7 @@ Ad units are a common source of unexpected CLS. Ads often load with different he
 Re-run the audit to get a fresh PSI measurement:
 
 ```bash
-npx orino audit https://yourdomain.com
+npx @bynaree/orino audit --url https://yourdomain.com
 ```
 
 A CLS score of ≤0.1 passes. If you want to diagnose which elements are shifting, open Chrome DevTools, go to Performance, record a page load, and look for the "Layout Shift" entries in the Experience lane.

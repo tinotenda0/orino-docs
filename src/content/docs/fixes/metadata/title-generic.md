@@ -106,7 +106,7 @@ curl -s https://example.com | grep -i '<title'
 Confirm the title contains no generic phrases. Re-run the audit:
 
 ```bash
-npx orino audit https://example.com
+npx @bynaree/orino audit --url https://example.com
 ```
 
 ## Related fixes

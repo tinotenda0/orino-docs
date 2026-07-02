@@ -46,7 +46,7 @@ The framework image components (next/image, astro:assets, @nuxt/image, @sveltejs
 Re-run the audit:
 
 ```bash
-npx orino audit https://yourdomain.com
+npx @bynaree/orino audit --url https://yourdomain.com
 ```
 
 The "Images missing explicit dimensions" check should pass. You can confirm in Chrome DevTools: in the Performance panel, record a page load and look for "Layout Shift" events. If images are the cause, they will appear highlighted on the page.

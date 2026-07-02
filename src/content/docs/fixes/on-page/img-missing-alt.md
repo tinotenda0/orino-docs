@@ -96,7 +96,7 @@ A good alt description answers: if this image failed to load, what would the use
 Re-run the audit:
 
 ```bash
-npx orino audit https://yourdomain.com
+npx @bynaree/orino audit --url https://yourdomain.com
 ```
 
 The check finds every `<img>` on the homepage where the `alt` attribute is absent. Once all images carry an explicit `alt` (even `alt=""`), the check passes.

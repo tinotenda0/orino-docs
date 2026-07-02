@@ -96,7 +96,7 @@ curl -s https://example.com/about | grep -i 'meta name.*description'
 Re-run the audit:
 
 ```bash
-npx orino audit .
+npx @bynaree/orino audit
 ```
 
 ## Related fixes

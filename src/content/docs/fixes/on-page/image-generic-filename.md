@@ -40,7 +40,7 @@ The flagged patterns are: `IMG_*`, `image*`, `photo*`, `DSC_*`, `screenshot*`, `
 Re-run the audit:
 
 ```bash
-npx orino audit
+npx @bynaree/orino audit
 ```
 
 The check scans all image files in the project directory for generic filename patterns. Once the flagged files are renamed, they drop out of the report.

@@ -28,6 +28,8 @@ An audit runs 14 active critical checks and 22 active warning checks. Two critic
 
 :::note
 Skipped checks are excluded from scoring entirely. They are removed from both `pointsPossible` and `pointsLost`. A skipped performance check (because no PSI key is set) neither helps nor hurts your score.
+
+Orino only ever marks a check as passed when it actually verified the condition. Checks that cannot be verified in the current mode — for example, cross-page title uniqueness when only the homepage was fetched, or Article schema on blog posts Orino did not crawl — are reported as skipped, never as passed.
 :::
 
 ## Score bands
@@ -54,17 +56,18 @@ Examples from the check library:
 
 - GPTBot, OAI-SearchBot, or PerplexityBot blocked in `robots.txt`
 - Invalid JSON-LD syntax (structured data is silently ignored by search engines when malformed)
-- CSR-only page component at the top level (`'use client'` in Next.js App Router, `ssr: false` in Nuxt or SvelteKit, `client:only` without static content in Astro)
+- Rendering disabled on the server (`ssr: false` in Nuxt or SvelteKit, `client:only` without static content in Astro)
 - Missing H1 tag
 
 **Warning issues** are checks where failure means a ranking or citation signal is absent or suboptimal, but nothing is actively broken.
 
 Examples from the check library:
 
-- Missing FAQPage schema on informational pages
+- A client component used as a page file (`'use client'` in a Next.js App Router `page.tsx` — no metadata export, effect-fetched content invisible to crawlers)
 - Thin content (below 300 words of visible text on the page)
 - Generic anchor text such as "click here" or "read more"
 - Images without explicit width and height attributes
+- Missing `twitter:card` meta tag
 
 ## Score is not the whole picture
 
