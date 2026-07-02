@@ -58,7 +58,7 @@ Running a single-page application with a blank `<div id="root">` as the HTML pay
 Re-run the audit:
 
 ```bash
-npx @bynaree/orino audit --url https://yourdomain.com
+npx orino-cli audit --url https://yourdomain.com
 ```
 
 Or run a Lighthouse report on mobile. The LCP element is identified in the report under "Diagnostics" so you can confirm you are optimising the right element.

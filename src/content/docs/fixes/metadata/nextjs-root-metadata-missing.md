@@ -78,7 +78,7 @@ curl -s https://example.com | grep -i '<title'
 You should see your title, not "Create Next App". Re-run the audit:
 
 ```bash
-npx @bynaree/orino audit
+npx orino-cli audit
 ```
 
 ## Related fixes

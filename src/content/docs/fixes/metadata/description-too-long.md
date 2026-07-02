@@ -86,7 +86,7 @@ curl -s https://example.com | grep -i 'meta name.*description'
 Count the characters in the `content` attribute. It should be 155 or fewer. Re-run the audit to confirm:
 
 ```bash
-npx @bynaree/orino audit --url https://example.com
+npx orino-cli audit --url https://example.com
 ```
 
 ## Related fixes

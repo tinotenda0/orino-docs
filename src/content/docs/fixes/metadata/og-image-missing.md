@@ -49,7 +49,7 @@ The output should contain a `content` attribute with a full `https://` URL. You 
 Re-run the audit:
 
 ```bash
-npx @bynaree/orino audit --url https://example.com
+npx orino-cli audit --url https://example.com
 ```
 
 ## Related fixes

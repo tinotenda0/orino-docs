@@ -34,7 +34,7 @@ Restricting the key limits what an attacker can do if it ever leaks. An unrestri
 **Per command**
 
 ```bash
-npx @bynaree/orino audit --url https://yoursite.com --psi-key YOUR_KEY
+npx orino-cli audit --url https://yoursite.com --psi-key YOUR_KEY
 ```
 
 **Persistent (recommended)**

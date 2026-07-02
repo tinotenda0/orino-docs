@@ -38,7 +38,7 @@ A footer link counts as an internal link for this check. Covering important sect
 Re-run the audit:
 
 ```bash
-npx @bynaree/orino audit --url https://yourdomain.com
+npx orino-cli audit --url https://yourdomain.com
 ```
 
 The check compares all top-level paths in the sitemap against the internal links in the homepage HTML. Once the missing sections are linked, the check passes.

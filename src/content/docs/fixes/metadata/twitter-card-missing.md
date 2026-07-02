@@ -57,7 +57,7 @@ Add the meta tag directly to the layout or page `<head>`:
 Re-run the audit:
 
 ```bash
-npx @bynaree/orino audit --url https://yourdomain.com
+npx orino-cli audit --url https://yourdomain.com
 ```
 
 You can also paste the URL into X's Card Validator or share it in a DM to yourself to preview the card.

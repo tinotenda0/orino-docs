@@ -66,7 +66,7 @@ curl -s https://example.com | grep -i 'og:image'
 Confirm the `content` attribute starts with `https://`. Re-run the audit:
 
 ```bash
-npx @bynaree/orino audit
+npx orino-cli audit
 ```
 
 ## Related fixes

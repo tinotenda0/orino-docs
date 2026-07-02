@@ -89,7 +89,7 @@ curl -s https://example.com/about | grep -i '<title'
 Confirm the title is page-specific. Re-run the audit:
 
 ```bash
-npx @bynaree/orino audit
+npx orino-cli audit
 ```
 
 ## Related fixes

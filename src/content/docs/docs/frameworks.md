@@ -64,7 +64,7 @@ These run whenever Orino has a live URL, regardless of whether codebase access i
 If you only have a URL and no access to source files, pass `--no-codebase`:
 
 ```bash
-npx @bynaree/orino audit --url https://example.com --no-codebase
+npx orino-cli audit --url https://example.com --no-codebase
 ```
 
 Framework-specific findings are skipped entirely. Every universal check still runs, including performance, schema validation, metadata, and GEO readiness.

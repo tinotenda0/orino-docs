@@ -105,7 +105,7 @@ Count the characters in the output. Alternatively, paste the title into Google's
 Re-run the audit to confirm the check passes:
 
 ```bash
-npx @bynaree/orino audit --url https://example.com
+npx orino-cli audit --url https://example.com
 ```
 
 ## Related fixes

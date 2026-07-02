@@ -68,7 +68,7 @@ curl -s https://example.com | grep -i '<html'
 You should see `lang="en-GB"` on the `<html>` element. Re-run the audit:
 
 ```bash
-npx @bynaree/orino audit
+npx orino-cli audit
 ```
 
 ## Related fixes

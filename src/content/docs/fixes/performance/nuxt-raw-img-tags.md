@@ -70,7 +70,7 @@ Replace raw `<img>` tags with `<NuxtImg>`. The component is globally available a
 Re-run the audit:
 
 ```bash
-npx @bynaree/orino audit --url https://yourdomain.com
+npx orino-cli audit --url https://yourdomain.com
 ```
 
 The "Raw `<img>` tags" check should pass. In the rendered HTML, `<NuxtImg>` outputs a standard `<img>` with an optimised `/_ipx/` URL.

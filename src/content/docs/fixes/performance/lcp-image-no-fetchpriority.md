@@ -81,7 +81,7 @@ Mark only one image per page as high priority. If you mark multiple images, the 
 Re-run the audit:
 
 ```bash
-npx @bynaree/orino audit --url https://yourdomain.com
+npx orino-cli audit --url https://yourdomain.com
 ```
 
 In Chrome DevTools Network panel, find the hero image request. The Priority column should show "Highest".

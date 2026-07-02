@@ -108,7 +108,7 @@ curl -s https://example.com | grep -i 'og:description'
 Re-run the audit to confirm the check passes:
 
 ```bash
-npx @bynaree/orino audit --url https://example.com
+npx orino-cli audit --url https://example.com
 ```
 
 ## Related fixes

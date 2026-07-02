@@ -90,7 +90,7 @@ When you rename a live route, the old URL stops working. Before deploying, set u
 Re-run the audit:
 
 ```bash
-npx @bynaree/orino audit
+npx orino-cli audit
 ```
 
 The check scans all detected route paths for underscores and uppercase in path segments. Once renamed — with redirects in place — the check passes.

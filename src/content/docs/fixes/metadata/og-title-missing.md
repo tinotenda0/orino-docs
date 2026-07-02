@@ -131,7 +131,7 @@ You can also test the full Open Graph preview using the [Facebook Sharing Debugg
 Re-run the audit:
 
 ```bash
-npx @bynaree/orino audit --url https://example.com
+npx orino-cli audit --url https://example.com
 ```
 
 ## Related fixes

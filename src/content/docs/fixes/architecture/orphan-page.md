@@ -33,7 +33,7 @@ Do not add links just to satisfy this check. A forced, out-of-context link harms
 Re-run the audit:
 
 ```bash
-npx @bynaree/orino audit --url https://yourdomain.com
+npx orino-cli audit --url https://yourdomain.com
 ```
 
 The check builds a link graph from your live site (up to 3 levels deep from the homepage) and identifies any sitemap URL that does not appear in any page's outbound links. Once at least one internal link points to each orphan page, they drop out of the report.

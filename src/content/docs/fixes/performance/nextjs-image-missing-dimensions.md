@@ -76,7 +76,7 @@ When using a static import with `<Image>`, the TypeScript types and runtime both
 Re-run the audit:
 
 ```bash
-npx @bynaree/orino audit
+npx orino-cli audit
 ```
 
 The "Images missing explicit dimensions" check should pass. In the browser, inspect the rendered `<img>` element — it should have explicit `width` and `height` attributes set by Next.js.

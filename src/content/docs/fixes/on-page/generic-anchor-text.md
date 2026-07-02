@@ -42,7 +42,7 @@ Descriptive anchor text also improves accessibility. Screen readers can navigate
 Re-run the audit:
 
 ```bash
-npx @bynaree/orino audit --url https://yourdomain.com
+npx orino-cli audit --url https://yourdomain.com
 ```
 
 The check scans every `<a href>` element on the homepage for these exact strings (case-insensitive): "click here", "read more", "learn more", "here", "this page", "this link", "continue", "more". Once none match, the check passes.

@@ -78,7 +78,7 @@ img {
 Re-run the audit:
 
 ```bash
-npx @bynaree/orino audit
+npx orino-cli audit
 ```
 
 The "Images missing explicit dimensions" check should pass. In the built HTML, `<enhanced:img>` outputs a `<picture>` element wrapping an `<img>` with explicit `width` and `height` set.

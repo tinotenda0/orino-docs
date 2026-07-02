@@ -74,7 +74,7 @@ Set `CI=true` (most providers do this automatically) and Orino disables all inte
 ```yaml
 - name: Orino SEO Audit
   run: |
-    npx @bynaree/orino audit \
+    npx orino-cli audit \
       --url ${{ vars.SITE_URL }} \
       --no-codebase
   env:
@@ -86,7 +86,7 @@ Interactive prompts are also disabled when stdout is piped, so you do not need t
 ## Help
 
 ```bash
-npx @bynaree/orino audit --help
+npx orino-cli audit --help
 ```
 
 Prints all available options to the terminal.

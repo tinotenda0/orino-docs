@@ -145,7 +145,7 @@ curl -s https://example.com | grep -iE 'canonical|og:url'
 Both values should be identical. Re-run the audit:
 
 ```bash
-npx @bynaree/orino audit --url https://example.com
+npx orino-cli audit --url https://example.com
 ```
 
 ## Related fixes

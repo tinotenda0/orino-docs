@@ -87,7 +87,7 @@ curl -s https://example.com/about | grep -i '<title'
 The output should show the page-specific title. Re-run the audit:
 
 ```bash
-npx @bynaree/orino audit
+npx orino-cli audit
 ```
 
 ## Related fixes

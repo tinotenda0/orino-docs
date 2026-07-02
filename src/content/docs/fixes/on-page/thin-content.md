@@ -39,7 +39,7 @@ A homepage built around a single large CTA may correctly sit under 300 words by 
 Re-run the audit:
 
 ```bash
-npx @bynaree/orino audit --url https://yourdomain.com
+npx orino-cli audit --url https://yourdomain.com
 ```
 
 The check counts words from the rendered HTML after removing `<script>`, `<style>`, `<noscript>`, and `<head>` elements. It counts words longer than two characters. You can estimate the count in the browser console:

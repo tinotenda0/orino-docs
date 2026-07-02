@@ -42,7 +42,7 @@ Changing heading levels changes the visual appearance if your CSS targets elemen
 Re-run the audit:
 
 ```bash
-npx @bynaree/orino audit --url https://yourdomain.com
+npx orino-cli audit --url https://yourdomain.com
 ```
 
 You can also inspect the heading sequence directly in the browser console:

@@ -57,7 +57,7 @@ Data transformations, parsing, or filtering that run synchronously in response t
 Re-run the audit:
 
 ```bash
-npx @bynaree/orino audit --url https://yourdomain.com
+npx orino-cli audit --url https://yourdomain.com
 ```
 
 Orino reads INP from Chrome User Experience Report (CrUX) field data returned by the PageSpeed Insights API — the same real-user data Google ranks on. Sites without enough traffic have no CrUX data, in which case this check is skipped (lab runs cannot measure INP because it requires real interactions). Changes you make will not appear in the score until enough real users visit the updated page. For immediate feedback, test in Chrome DevTools using the Performance panel.

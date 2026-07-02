@@ -75,7 +75,7 @@ curl -s https://example.com/about | grep -i '<title'
 Re-run the audit to confirm the page is no longer flagged:
 
 ```bash
-npx @bynaree/orino audit
+npx orino-cli audit
 ```
 
 ## Related fixes

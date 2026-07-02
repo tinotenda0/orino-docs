@@ -19,7 +19,7 @@ No global install needed. npx handles it.
 
 ```bash
 cd your-project
-npx @bynaree/orino audit
+npx orino-cli audit
 ```
 
 Orino detects your framework automatically and runs a full analysis. If a live URL is found in your project config, codebase checks and URL checks run together. This is the most complete mode.
@@ -27,7 +27,7 @@ Orino detects your framework automatically and runs a full analysis. If a live U
 **Point at a specific directory**
 
 ```bash
-npx @bynaree/orino audit --dir /path/to/project
+npx orino-cli audit --dir /path/to/project
 ```
 
 Runs the same full analysis from any working directory. Useful for monorepos or when you want to audit a project without changing your shell's current location.
@@ -35,7 +35,7 @@ Runs the same full analysis from any working directory. Useful for monorepos or 
 **URL only, no codebase**
 
 ```bash
-npx @bynaree/orino audit --url https://yoursite.com
+npx orino-cli audit --url https://yoursite.com
 ```
 
 Runs in URL-only mode when no local project directory is present. Checks cover PageSpeed Insights, rendered metadata, crawlability, and GEO signals. No local files required.
@@ -97,9 +97,9 @@ Add that line to your shell profile (`~/.zshrc` or `~/.bashrc`) to persist it ac
 Pass a report flag to export results after the scan. Each flag accepts an optional custom path.
 
 ```bash
-npx @bynaree/orino audit --url https://yoursite.com --report-pdf
-npx @bynaree/orino audit --url https://yoursite.com --report-md
-npx @bynaree/orino audit --url https://yoursite.com --report-txt
+npx orino-cli audit --url https://yoursite.com --report-pdf
+npx orino-cli audit --url https://yoursite.com --report-md
+npx orino-cli audit --url https://yoursite.com --report-txt
 ```
 
 Use PDF to share with non-technical stakeholders. Use Markdown to drop the report into a repo or issue tracker. Use plain text for piping into other tools or logging in CI.

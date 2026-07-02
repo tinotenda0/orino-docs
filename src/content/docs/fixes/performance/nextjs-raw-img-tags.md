@@ -77,7 +77,7 @@ Next.js will warn in development if you use a raw `<img>` tag and suggest switch
 Re-run the audit from your project directory:
 
 ```bash
-npx @bynaree/orino audit
+npx orino-cli audit
 ```
 
 The "Raw `<img>` tags" check should pass. In the browser, inspect the rendered image — it should have a `/_next/image?url=...` src, confirming Next.js is serving an optimised version.

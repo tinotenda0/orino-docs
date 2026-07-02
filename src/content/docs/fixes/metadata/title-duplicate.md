@@ -121,7 +121,7 @@ curl -s https://example.com/about | grep -i '<title'
 Both should return different title values. Re-run the audit to confirm:
 
 ```bash
-npx @bynaree/orino audit --url https://example.com
+npx orino-cli audit --url https://example.com
 ```
 
 ## Related fixes

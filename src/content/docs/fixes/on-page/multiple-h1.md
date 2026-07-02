@@ -93,7 +93,7 @@ document.querySelectorAll('h1').length
 The result should be `1`. Then re-run the audit to confirm:
 
 ```bash
-npx @bynaree/orino audit --url https://yourdomain.com
+npx orino-cli audit --url https://yourdomain.com
 ```
 
 ## Related fixes

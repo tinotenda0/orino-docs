@@ -88,7 +88,7 @@ The Vercel Speed Insights tab shows TTFB broken down by region. If one region is
 Re-run the audit:
 
 ```bash
-npx @bynaree/orino audit --url https://yourdomain.com
+npx orino-cli audit --url https://yourdomain.com
 ```
 
 You can also check TTFB from your browser: in DevTools Network panel, click on the HTML document request and look at the Timing tab. "Waiting (TTFB)" should be under 600ms.

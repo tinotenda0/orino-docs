@@ -52,7 +52,7 @@ curl -s https://example.com | grep -iE 'viewport|og:image'
 Both tags should appear in the output. Re-run the audit:
 
 ```bash
-npx @bynaree/orino audit
+npx orino-cli audit
 ```
 
 ## Related fixes

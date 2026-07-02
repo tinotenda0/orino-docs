@@ -34,7 +34,7 @@ The check measures the shortest path through your live site's actual links — n
 Re-run the audit after deploying the new links:
 
 ```bash
-npx @bynaree/orino audit --url https://yourdomain.com
+npx orino-cli audit --url https://yourdomain.com
 ```
 
 The check crawls your live site up to 3 levels deep from the homepage. Once every page in the sitemap is reachable within 3 clicks, the check passes.

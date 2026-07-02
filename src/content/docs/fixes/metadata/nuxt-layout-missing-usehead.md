@@ -98,7 +98,7 @@ curl -s https://example.com | grep -iE '<html|<title|og:image'
 Confirm the `lang` attribute, title, and OG image appear. Re-run the audit:
 
 ```bash
-npx @bynaree/orino audit
+npx orino-cli audit
 ```
 
 ## Related fixes
