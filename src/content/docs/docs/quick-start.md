@@ -62,7 +62,7 @@ All interactive prompts are disabled when `CI` is set, when `--json` is passed, 
 
 Results are split into four sections.
 
-**Critical issues** are flagged in red. Each one deducts 10 points from your score. A single failed critical also sets the process exit code to 1, which fails CI builds. Fix these before addressing anything else.
+**Critical issues** are flagged in red. Each one deducts 10 points from your score. By default a single failed critical sets the process exit code to 1, which fails CI builds — the [`--fail-on`](/docs/cli-reference#exit-codes) flag lets you change that threshold. Fix these before addressing anything else.
 
 **Warnings** are flagged in yellow. Each failed warning deducts 3 points. They reduce ranking and GEO visibility but do not block crawlers or indexing.
 
@@ -91,6 +91,26 @@ export ORINO_PSI_KEY=your_key_here
 ```
 
 Add that line to your shell profile (`~/.zshrc` or `~/.bashrc`) to persist it across sessions.
+
+## Audit more than the homepage
+
+By default Orino audits the homepage. Pass `--pages` to sample additional pages from your sitemap and run the full URL check suite on each — including cross-page checks like duplicate titles that a single page cannot reveal.
+
+```bash
+npx orino-cli audit --url https://yoursite.com --pages 25
+```
+
+In `--quiet` mode you also get a per-page score table. See [Multi-page auditing](/docs/cli-reference#multi-page-auditing) for the details.
+
+## Persist settings in a config file
+
+Rather than passing the same flags every time, run `orino init` to generate a config file, then edit it:
+
+```bash
+npx orino-cli init
+```
+
+This writes a documented `orino.config.json` where you can set your URL, page count, ignore rules for false positives, and CI thresholds. Flags always override the file. See [Configuration](/docs/configuration) for the full schema.
 
 ## Generate a report
 

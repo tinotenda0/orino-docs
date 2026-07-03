@@ -25,6 +25,7 @@ export default defineConfig({
 						{ label: 'Overview', link: '/' },
 						{ label: 'Quick Start', slug: 'docs/quick-start' },
 						{ label: 'CLI Reference', slug: 'docs/cli-reference' },
+						{ label: 'Configuration', slug: 'docs/configuration' },
 						{ label: 'Frameworks', slug: 'docs/frameworks' },
 						{ label: 'PSI Setup', slug: 'docs/psi-setup' },
 						{ label: 'Scoring', slug: 'docs/scoring' },

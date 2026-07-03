@@ -29,7 +29,7 @@ An audit runs 14 active critical checks and 22 active warning checks. Two critic
 :::note
 Skipped checks are excluded from scoring entirely. They are removed from both `pointsPossible` and `pointsLost`. A skipped performance check (because no PSI key is set) neither helps nor hurts your score.
 
-Orino only ever marks a check as passed when it actually verified the condition. Checks that cannot be verified in the current mode — for example, cross-page title uniqueness when only the homepage was fetched, or Article schema on blog posts Orino did not crawl — are reported as skipped, never as passed.
+Orino only ever marks a check as passed when it actually verified the condition. Checks that cannot be verified in the current mode — for example, cross-page title uniqueness when only the homepage was fetched, or Article schema on blog posts Orino did not crawl — are reported as skipped, never as passed. Passing [`--pages`](/docs/cli-reference#multi-page-auditing) fetches a sample of pages and turns several of these skipped checks into real ones.
 :::
 
 ## Score bands

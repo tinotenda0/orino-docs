@@ -33,8 +33,10 @@ npx orino-cli audit
     Crawler access for GPTBot, PerplexityBot, and ClaudeBot. llms.txt presence. Quick-answer block detection.
   </Card>
   <Card title="Architecture" icon="puzzle">
-    Internal link graph, orphaned pages, and crawl depth from the homepage.
+    Internal link graph, orphaned pages, crawl depth from the homepage, and routes-vs-sitemap gap detection.
   </Card>
 </CardGrid>
+
+Audit a single page or sample your whole site with `--pages`, persist settings in a [config file](/docs/configuration), and wire the results into CI with `--fail-on` and baselines. See what changed in [v0.3.0](/changelog/v0-3-0).
 
 <LinkCard title="Quick Start" href="/docs/quick-start" description="Run your first audit in under two minutes." />

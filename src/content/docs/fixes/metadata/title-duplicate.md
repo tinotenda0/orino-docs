@@ -14,7 +14,7 @@ Google uses the title tag to understand what a page is about. When multiple page
 Each page should have a unique, descriptive title that reflects its specific content.
 
 :::note
-For plain HTML projects, Orino compares titles across every HTML file in the project. For live-URL audits, only the homepage is currently fetched, so this check reports as skipped rather than guessing — cross-page uniqueness cannot be verified from a single page.
+For plain HTML projects, Orino compares titles across every HTML file in the project. For live-URL audits, run with [`--pages`](/docs/cli-reference#multi-page-auditing) to fetch a sample of pages and compare their titles. Without `--pages`, only the homepage is fetched, so this check reports as skipped rather than guessing — cross-page uniqueness cannot be verified from a single page.
 :::
 
 ## How to fix it
