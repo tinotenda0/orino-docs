@@ -156,7 +156,7 @@ Set `CI=true` (most providers do this automatically) and Orino disables all inte
 ```yaml
 - name: Orino SEO Audit
   run: |
-    npx orino-cli audit \
+    npx --yes orino-cli audit \
       --url ${{ vars.SITE_URL }} \
       --fail-on critical \
       --json \
@@ -165,7 +165,18 @@ Set `CI=true` (most providers do this automatically) and Orino disables all inte
     ORINO_PSI_KEY: ${{ secrets.ORINO_PSI_KEY }}
 ```
 
+:::caution
+Always pass `--yes` to `npx` in CI. GitHub Actions runners do not auto-confirm a first-time package install, so a bare `npx orino-cli` fails with `orino: not found` (exit 127). `npx --yes` installs non-interactively.
+:::
+
 A complete GitHub Actions workflow ships with the CLI at `.github/workflows/orino.yml`. It runs the audit, comments the score on pull requests, and fails the check when criticals are found. Copy it into your own repository to get PR score comments out of the box.
+
+Two things that workflow needs in the target repository:
+
+- A **`SITE_URL` repository variable** (Settings → Secrets and variables → Actions → Variables) pointing at the site to audit. The job is guarded with `if: vars.SITE_URL != ''`, so it skips cleanly until you set it rather than running against an empty URL.
+- The **`pull-requests: write` permission**, declared at the top of the workflow, so the score comment can be posted. The default `GITHUB_TOKEN` is read-only.
+
+Optionally add an `ORINO_PSI_KEY` secret to enable PageSpeed checks.
 
 Interactive prompts are also disabled when stdout is piped, so you do not need to set `CI` explicitly when using `--json` or `--output`.
 
