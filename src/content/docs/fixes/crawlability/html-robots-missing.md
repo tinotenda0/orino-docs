@@ -44,5 +44,5 @@ Confirm the response is `200 OK`. Then re-run `orino audit`.
 ## Related fixes
 
 - [sitemap.xml missing](/fixes/crawlability/html-sitemap-missing)
-- [HTML lang attribute missing](/fixes/crawlability/html-lang-missing)
+- [HTML lang attribute missing](/fixes/crawlability/html-missing-lang)
 - [Viewport meta tag missing](/fixes/crawlability/viewport-missing)

@@ -45,6 +45,6 @@ Confirm the output includes `<meta name="viewport"`. Then re-run `orino audit`.
 
 ## Related fixes
 
-- [HTML lang attribute missing](/fixes/crawlability/html-lang-missing)
+- [HTML lang attribute missing](/fixes/crawlability/html-missing-lang)
 - [robots.txt missing](/fixes/crawlability/html-robots-missing)
 - [sitemap.xml missing](/fixes/crawlability/html-sitemap-missing)

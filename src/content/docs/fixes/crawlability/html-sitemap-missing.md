@@ -55,5 +55,5 @@ Confirm the response is valid XML with `<urlset>` as the root element and that a
 ## Related fixes
 
 - [robots.txt missing](/fixes/crawlability/html-robots-missing)
-- [HTML lang attribute missing](/fixes/crawlability/html-lang-missing)
+- [HTML lang attribute missing](/fixes/crawlability/html-missing-lang)
 - [Viewport meta tag missing](/fixes/crawlability/viewport-missing)
