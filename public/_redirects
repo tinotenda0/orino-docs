@@ -1,0 +1,14 @@
+# The orino-cli package and the web app link to flat /fixes/<slug> URLs,
+# but fix pages live nested under their check category. Redirect the
+# checks that apps/web can auto-fix (see apps/web/lib/fixes/fixable.ts)
+# to their real page so those links don't 404.
+/fixes/robots-txt-present     /fixes/crawlability/robots-txt-present     301
+/fixes/sitemap-present        /fixes/crawlability/sitemap-present        301
+/fixes/title-missing          /fixes/metadata/title-missing              301
+/fixes/title-too-long         /fixes/metadata/title-too-long             301
+/fixes/description-missing    /fixes/metadata/description-missing        301
+/fixes/og-image-missing       /fixes/metadata/og-image-missing           301
+/fixes/og-image-relative-url  /fixes/metadata/og-image-relative-url      301
+/fixes/viewport-missing       /fixes/crawlability/viewport-missing       301
+/fixes/html-lang-missing      /fixes/metadata/html-lang-missing          301
+/fixes/img-missing-alt        /fixes/on-page/img-missing-alt             301

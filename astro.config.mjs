@@ -3,7 +3,7 @@ import { defineConfig } from 'astro/config';
 import starlight from '@astrojs/starlight';
 
 export default defineConfig({
-	site: 'https://orino.app',
+	site: 'https://docs.orino.app',
 	base: '/',
 	integrations: [
 		starlight({
