@@ -18,6 +18,11 @@ export default defineConfig({
 				{ icon: 'github', label: 'GitHub', href: 'https://github.com/tinotenda0/orino' },
 			],
 			customCss: ['./src/styles/custom.css'],
+			// Code blocks render as night-surface terminals in both color modes,
+			// matching the landing page's terminal panels.
+			expressiveCode: {
+				themes: ['github-dark'],
+			},
 			sidebar: [
 				{
 					label: 'Getting Started',

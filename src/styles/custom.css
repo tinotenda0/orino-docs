@@ -1,29 +1,481 @@
-/* Orino brand green scale */
+@import url("https://api.fontshare.com/v2/css?f[]=switzer@400,500,600,700,800,900&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600;700&display=swap");
+
+/*
+ * Snap / Spring / Field — the Orino design language, mapped onto Starlight.
+ * Law 1: the system snaps (one-frame state changes, no easing).
+ * Law 2: objects have mass (springs + overshoot for anything touchable).
+ * Law 3: green is a surface (full-bleed #73E59E blocks, never a tint or glow).
+ * Surfaces are sharp-cornered with 2px ink borders; pills are for buttons/chips only.
+ */
+
 :root {
-  --orino-green-950: #052e16;
-  --orino-green-900: #14532d;
-  --orino-green-800: #166534;
-  --orino-green-700: #15803d;
-  --orino-green-600: #16a34a;
-  --orino-green-500: #22c55e;
-  --orino-green-400: #4ade80;
-  --orino-green-300: #86efac;
-  --orino-green-200: #bbf7d0;
-  --orino-green-100: #dcfce7;
-  --orino-green-50:  #f0fdf4;
+  /* Surfaces */
+  --orino-gallery: #f4f4f0;
+  --orino-gallery-2: #eaeae3;
+  --orino-chalk: #fdfdf8;
+  --orino-night: #0b0d0c;
+  --orino-night-2: #151815;
+  --orino-mint: #73e59e;
+
+  /* Ink */
+  --orino-ink: #101210;
+  --orino-ink-soft: #4c4f4a;
+  --orino-ink-faint: #7d817a;
+
+  /* Functional */
+  --orino-accent-deep: #0e9a54;
+  --orino-fail: #d84a3d;
+  --orino-warn: #dc9c22;
+
+  /* Law 2 */
+  --ease-spring: cubic-bezier(0.2, 1.7, 0.35, 1);
+
+  /* Fonts */
+  --sl-font: "Switzer";
+  --sl-font-mono: "JetBrains Mono";
+
+  /* Micro-label recipe (nav cells, group labels, chips) */
+  --orino-label-size: 11.5px;
+  --orino-label-spacing: 0.14em;
 }
 
-/* Light mode accent */
+/* ---------------------------------------------------------------- */
+/* Palette — dark (night field)                                     */
+/* ---------------------------------------------------------------- */
 :root,
 ::backdrop {
-  --sl-color-accent-low:  var(--orino-green-50);
-  --sl-color-accent:      var(--orino-green-600);
-  --sl-color-accent-high: var(--orino-green-900);
+  --sl-color-white: #f4f4f0;
+  --sl-color-gray-1: #e7e9e4;
+  --sl-color-gray-2: #c6cac3;
+  --sl-color-gray-3: #969b93;
+  --sl-color-gray-4: #5a5f58;
+  --sl-color-gray-5: #2a2e2a;
+  --sl-color-gray-6: #151815;
+  --sl-color-gray-7: #101310;
+  --sl-color-black: #0b0d0c;
+
+  --sl-color-accent-low: #12331f;
+  --sl-color-accent: var(--orino-mint);
+  --sl-color-accent-high: #a9f2c6;
+
+  --sl-color-bg: var(--orino-night);
+  --sl-color-bg-nav: var(--orino-night);
+  --sl-color-bg-sidebar: var(--orino-night);
+  --sl-color-bg-inline-code: #1c211c;
+  --sl-color-text: var(--sl-color-gray-2);
+  --sl-color-text-accent: var(--orino-mint);
+  --sl-color-text-invert: var(--orino-night);
+  --sl-color-hairline-light: #232823;
+  --sl-color-hairline: #2a2e2a;
+  --sl-color-hairline-shade: #151815;
+
+  /* Theme-flipping working tokens */
+  --o-surface: var(--orino-night-2);
+  --o-border: rgba(115, 229, 158, 0.4);
+  --o-border-strong: var(--orino-mint);
+  --o-shadow: rgba(115, 229, 158, 0.3);
+  --o-invert-bg: var(--orino-mint);
+  --o-invert-fg: var(--orino-night);
+  --o-heading: var(--orino-gallery);
 }
 
-/* Dark mode accent */
-:root[data-theme='dark'] {
-  --sl-color-accent-low:  var(--orino-green-950);
-  --sl-color-accent:      var(--orino-green-400);
-  --sl-color-accent-high: var(--orino-green-200);
+/* ---------------------------------------------------------------- */
+/* Palette — light (gallery field)                                  */
+/* ---------------------------------------------------------------- */
+:root[data-theme="light"],
+[data-theme="light"] ::backdrop {
+  --sl-color-white: #101210;
+  --sl-color-gray-1: #2b2e2b;
+  --sl-color-gray-2: #3c3f3b;
+  --sl-color-gray-3: var(--orino-ink-faint);
+  --sl-color-gray-4: #a0a49b;
+  --sl-color-gray-5: #d9d9d0;
+  --sl-color-gray-6: var(--orino-gallery-2);
+  --sl-color-gray-7: #efefe9;
+  --sl-color-black: var(--orino-gallery);
+
+  --sl-color-accent-low: var(--orino-mint);
+  --sl-color-accent: var(--orino-accent-deep);
+  --sl-color-accent-high: #0b5231;
+
+  --sl-color-bg: var(--orino-gallery);
+  --sl-color-bg-nav: var(--orino-gallery);
+  --sl-color-bg-sidebar: var(--orino-gallery);
+  --sl-color-bg-inline-code: var(--orino-gallery-2);
+  --sl-color-text: #343733;
+  --sl-color-text-accent: var(--orino-accent-deep);
+  --sl-color-text-invert: var(--orino-gallery);
+  --sl-color-hairline-light: #e0e0d6;
+  --sl-color-hairline: rgba(16, 18, 16, 0.15);
+  --sl-color-hairline-shade: #e6e6dd;
+
+  --o-surface: var(--orino-chalk);
+  --o-border: var(--orino-ink);
+  --o-border-strong: var(--orino-ink);
+  --o-shadow: var(--orino-ink);
+  --o-invert-bg: var(--orino-ink);
+  --o-invert-fg: var(--orino-mint);
+  --o-heading: var(--orino-ink);
+}
+
+/* ---------------------------------------------------------------- */
+/* Base                                                             */
+/* ---------------------------------------------------------------- */
+html {
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+
+::selection {
+  background-color: var(--o-invert-bg);
+  color: var(--o-invert-fg);
+}
+
+/* Heavy, tight display headings */
+.sl-markdown-content :is(h1, h2, h3, h4),
+h1#_top {
+  font-weight: 800;
+  letter-spacing: -0.03em;
+  line-height: 1.08;
+  color: var(--o-heading);
+}
+
+h1#_top {
+  letter-spacing: -0.04em;
+  line-height: 1;
+}
+
+:root {
+  --sl-text-h1: 2.75rem;
+  --sl-text-h2: 1.85rem;
+  --sl-text-h3: 1.35rem;
+  --sl-text-h4: 1.1rem;
+}
+
+/* Content links: green ink, snap-invert on hover (Law 1) */
+.sl-markdown-content a:not(:where(.not-content *, .sl-link-card *, .card *)) {
+  color: var(--sl-color-text-accent);
+  font-weight: 600;
+  text-decoration: underline;
+  text-decoration-thickness: 2px;
+  text-underline-offset: 3px;
+  transition: none;
+}
+.sl-markdown-content
+  a:not(:where(.not-content *, .sl-link-card *, .card *)):hover {
+  background: var(--o-invert-bg);
+  color: var(--o-invert-fg);
+  text-decoration: none;
+}
+
+/* Inline code: sharp corners, mono */
+.sl-markdown-content code:not(:where(.expressive-code *)) {
+  border-radius: 0;
+  border: 1px solid var(--sl-color-hairline);
+  font-weight: 600;
+}
+
+/* Rules and tables: structural ink lines */
+.sl-markdown-content hr {
+  border: 0;
+  border-top: 2px solid var(--o-border-strong);
+}
+
+.sl-markdown-content table {
+  border: 2px solid var(--o-border);
+}
+.sl-markdown-content th {
+  font-family: var(--sl-font-mono), ui-monospace, monospace;
+  font-size: 12px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  background: var(--sl-color-gray-6);
+  color: var(--sl-color-white);
+}
+
+/* ---------------------------------------------------------------- */
+/* Header — Swiss cell bar                                          */
+/* ---------------------------------------------------------------- */
+header.header {
+  border-bottom: 2px solid var(--o-border-strong);
+  background-color: var(--sl-color-bg-nav);
+}
+
+/* Search: mono pill chip */
+button[data-open-modal] {
+  border: 2px solid var(--o-border-strong);
+  border-radius: 9999px;
+  background: var(--o-surface);
+  color: var(--sl-color-white);
+  font-family: var(--sl-font-mono), ui-monospace, monospace;
+  font-size: 12.5px;
+  font-weight: 600;
+  padding-inline-start: 0.75rem;
+  transition: none;
+}
+button[data-open-modal]:hover {
+  background: var(--o-invert-bg);
+  color: var(--o-invert-fg);
+  border-color: var(--o-border-strong);
+}
+button[data-open-modal] kbd {
+  background: transparent;
+  font-family: inherit;
+}
+
+/* Social + theme controls snap too */
+.social-icons a,
+starlight-theme-select select {
+  transition: none;
+}
+.social-icons a:hover {
+  color: var(--sl-color-text-accent);
+  opacity: 1;
+}
+
+/* ---------------------------------------------------------------- */
+/* Sidebar                                                          */
+/* ---------------------------------------------------------------- */
+/* Group labels: uppercase mono micro-labels (nav-cell recipe) */
+.sidebar-content .group-label > span {
+  font-family: var(--sl-font-mono), ui-monospace, monospace;
+  font-size: var(--orino-label-size);
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: var(--orino-label-spacing);
+  color: var(--sl-color-gray-3);
+}
+
+/* Links: sharp corners, one-frame invert on hover */
+.sidebar-content a {
+  border-radius: 0;
+  transition: none;
+}
+.sidebar-content a:hover {
+  background: var(--o-invert-bg);
+  color: var(--o-invert-fg);
+}
+
+/* Current page: a solid inverted cell, like the landing nav's active state */
+.sidebar-content a[aria-current="page"],
+.sidebar-content a[aria-current="page"]:hover,
+.sidebar-content a[aria-current="page"]:focus {
+  background: var(--o-invert-bg);
+  color: var(--o-invert-fg);
+  font-weight: 700;
+}
+
+/* ---------------------------------------------------------------- */
+/* Right rail — on this page                                        */
+/* ---------------------------------------------------------------- */
+#starlight__on-this-page,
+#starlight__on-this-page--mobile {
+  font-family: var(--sl-font-mono), ui-monospace, monospace;
+  font-size: var(--orino-label-size);
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: var(--orino-label-spacing);
+  color: var(--sl-color-gray-3);
+}
+
+starlight-toc a {
+  border-radius: 0;
+  transition: none;
+}
+
+/* Current section: mint highlight block (the .hl headline treatment) */
+starlight-toc a[aria-current="true"] {
+  background: var(--orino-mint);
+  color: var(--orino-ink);
+  font-weight: 700;
+}
+
+/* ---------------------------------------------------------------- */
+/* Cards — chalk panels with mass (Law 2)                           */
+/* ---------------------------------------------------------------- */
+.card {
+  border: 2px solid var(--o-border);
+  border-radius: 0;
+  background: var(--o-surface);
+  box-shadow: 5px 5px 0 var(--o-shadow);
+  transition:
+    transform 0.5s var(--ease-spring),
+    box-shadow 0.5s var(--ease-spring);
+}
+.card:hover {
+  transform: translate(-2px, -2px);
+  box-shadow: 7px 7px 0 var(--o-shadow);
+}
+.card .title {
+  font-weight: 800;
+  letter-spacing: -0.02em;
+}
+/* Icon sits in a mint square cell, like the capability bento */
+.card .icon {
+  border: 2px solid var(--orino-ink);
+  background: var(--orino-mint);
+  color: var(--orino-ink);
+  padding: 0.3rem;
+}
+
+.sl-link-card {
+  border: 2px solid var(--o-border);
+  border-radius: 0;
+  background: var(--o-surface);
+  box-shadow: 5px 5px 0 var(--o-shadow);
+  transition:
+    transform 0.5s var(--ease-spring),
+    box-shadow 0.5s var(--ease-spring);
+}
+.sl-link-card:hover {
+  transform: translate(-2px, -2px);
+  box-shadow: 7px 7px 0 var(--o-shadow);
+  border-color: var(--o-border);
+  background: var(--o-surface);
+}
+.sl-link-card .title {
+  font-weight: 800;
+  letter-spacing: -0.02em;
+}
+
+/* Prev / next pagination: pressable slabs */
+.pagination-links a {
+  border: 2px solid var(--o-border);
+  border-radius: 0;
+  background: var(--o-surface);
+  box-shadow: 4px 4px 0 var(--o-shadow);
+  transition:
+    transform 0.5s var(--ease-spring),
+    box-shadow 0.5s var(--ease-spring);
+}
+.pagination-links a:hover {
+  border-color: var(--o-border);
+  transform: translate(-2px, -2px);
+  box-shadow: 6px 6px 0 var(--o-shadow);
+}
+.pagination-links .link-title {
+  font-weight: 800;
+  letter-spacing: -0.02em;
+  color: var(--o-heading);
+}
+
+/* Link buttons: the .press recipe */
+.sl-link-button {
+  border: 2px solid var(--orino-ink) !important;
+  border-radius: 9999px;
+  font-family: var(--sl-font-mono), ui-monospace, monospace;
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  box-shadow: 5px 5px 0 var(--o-shadow);
+  transition:
+    transform 0.5s var(--ease-spring),
+    box-shadow 0.5s var(--ease-spring);
+}
+.sl-link-button:hover {
+  transform: translate(-2px, -2px);
+  box-shadow: 7px 7px 0 var(--o-shadow);
+}
+.sl-link-button:active {
+  transition: none;
+  transform: translate(5px, 5px);
+  box-shadow: 0 0 0 var(--o-shadow);
+}
+.sl-link-button.primary {
+  background: var(--orino-mint);
+  color: var(--orino-ink);
+}
+.sl-link-button.secondary {
+  background: var(--o-surface);
+  color: var(--sl-color-white);
+  border-color: var(--o-border-strong) !important;
+}
+
+/* Badges: sticker chips */
+.sl-badge {
+  border-width: 2px;
+  border-radius: 9999px;
+  font-family: var(--sl-font-mono), ui-monospace, monospace;
+  font-weight: 700;
+}
+
+/* ---------------------------------------------------------------- */
+/* Asides — flat panels, mono label chips (no tints, Law 3)         */
+/* ---------------------------------------------------------------- */
+.starlight-aside {
+  border: 2px solid var(--o-border);
+  border-inline-start: 2px solid var(--o-border);
+  border-radius: 0;
+  background: var(--o-surface);
+  color: var(--sl-color-text);
+}
+.starlight-aside__title {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  padding: 0.25rem 0.6rem;
+  font-family: var(--sl-font-mono), ui-monospace, monospace;
+  font-size: 12px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  background: var(--orino-mint);
+  color: var(--orino-ink);
+}
+.starlight-aside--caution .starlight-aside__title {
+  background: var(--orino-warn);
+  color: var(--orino-ink);
+}
+.starlight-aside--danger .starlight-aside__title {
+  background: var(--orino-fail);
+  color: var(--orino-chalk);
+}
+.starlight-aside__content a {
+  color: var(--sl-color-text-accent);
+}
+
+/* ---------------------------------------------------------------- */
+/* Code blocks — always night terminals, ink-slab framing           */
+/* ---------------------------------------------------------------- */
+.expressive-code {
+  --ec-brdRad: 0;
+  --ec-brdWd: 2px;
+  --ec-brdCol: var(--o-border);
+  --ec-codeFontFml: "JetBrains Mono", ui-monospace, "SF Mono", Menlo, monospace;
+  --ec-uiFontFml: "JetBrains Mono", ui-monospace, "SF Mono", Menlo, monospace;
+  --ec-frm-edBg: var(--orino-night);
+  --ec-frm-trmBg: var(--orino-night);
+  --ec-frm-trmTtbBg: var(--orino-night-2);
+  --ec-frm-edTabBarBg: var(--orino-night-2);
+  --ec-frm-edActTabBg: var(--orino-night);
+  --ec-frm-edActTabFg: var(--orino-mint);
+  --ec-frm-edActTabIndTopCol: var(--orino-mint);
+  --ec-frm-trmTtbDotsFg: var(--orino-mint);
+  --ec-frm-trmTtbFg: var(--orino-gallery);
+  --ec-frm-frameBoxShdCssVal: 5px 5px 0 var(--o-shadow);
+}
+
+/* ---------------------------------------------------------------- */
+/* Search modal                                                     */
+/* ---------------------------------------------------------------- */
+dialog[aria-label="Search"] {
+  border: 2px solid var(--o-border-strong);
+  border-radius: 0;
+  background: var(--sl-color-bg);
+  box-shadow: 8px 8px 0 var(--o-shadow);
+}
+
+/* ---------------------------------------------------------------- */
+/* Reduced motion: mass is optional, snapping is free               */
+/* ---------------------------------------------------------------- */
+@media (prefers-reduced-motion: reduce) {
+  .card,
+  .sl-link-card,
+  .pagination-links a,
+  .sl-link-button {
+    transition: none;
+  }
 }
