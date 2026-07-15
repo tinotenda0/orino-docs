@@ -182,8 +182,20 @@ h1#_top {
   border-top: 2px solid var(--o-border-strong);
 }
 
+/* Tables: full-width Swiss cell grids (nav-bar recipe: framed cells,
+   hairline dividers, mono uppercase header band) */
 .sl-markdown-content table {
+  display: table;
+  width: 100%;
+  border-collapse: collapse;
   border: 2px solid var(--o-border);
+}
+.sl-markdown-content :is(th, td) {
+  padding: 0.7rem 1rem;
+  border-bottom: 1px solid var(--sl-color-hairline-light);
+}
+.sl-markdown-content :is(th, td):not(:last-child) {
+  border-inline-end: 1px solid var(--sl-color-hairline-light);
 }
 .sl-markdown-content th {
   font-family: var(--sl-font-mono), ui-monospace, monospace;
@@ -191,8 +203,26 @@ h1#_top {
   font-weight: 700;
   text-transform: uppercase;
   letter-spacing: 0.1em;
+  text-align: start;
   background: var(--sl-color-gray-6);
   color: var(--sl-color-white);
+  border-bottom: 2px solid var(--o-border);
+}
+/* Flat field: no zebra stripes, last row sits on the frame */
+.sl-markdown-content tbody tr:nth-child(2n) {
+  background: transparent;
+}
+.sl-markdown-content tbody tr:last-child :is(td, th) {
+  border-bottom: 0;
+}
+/* Narrow screens: scrollable block whose frame hugs the content */
+@media (max-width: 50rem) {
+  .sl-markdown-content table {
+    display: block;
+    width: fit-content;
+    max-width: 100%;
+    overflow-x: auto;
+  }
 }
 
 /* ---------------------------------------------------------------- */
