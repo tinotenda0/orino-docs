@@ -58,6 +58,12 @@ curl -s https://yourdomain.com/llms.txt
 
 You should see your Markdown content returned. A `404` or empty response means the file is not in the right directory or not being served correctly. Re-run `orino audit` to confirm the check passes.
 
+:::caution
+If the response is an HTML page (`<!DOCTYPE html>…`), your host is serving the app shell for every path. This is common with single-page apps that use a catch-all rewrite. Orino treats that as missing because AI systems will ignore it. Make sure the static file is matched before the rewrite: in Vercel, Netlify and Cloudflare Pages, files in the output directory take priority automatically, so check that `llms.txt` actually ends up in the build output.
+:::
+
+Once it's served, Orino also checks the file's structure. See [llms-txt-format](./llms-txt-format).
+
 ## Related fixes
 
 - [faqpage-missing-geo-impact](./faqpage-missing-geo-impact)
