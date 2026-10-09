@@ -3,7 +3,7 @@ title: CLI Reference
 description: Every flag and option available in the Orino CLI.
 ---
 
-Complete reference for the `orino audit`, `orino baseline`, and `orino init` commands.
+Complete reference for the `orino audit`, `orino fix`, `orino baseline`, and `orino init` commands.
 
 ## Commands
 
@@ -36,6 +36,39 @@ For `--report-txt`, `--report-md`, and `--report-pdf`, the Default column shows 
 :::
 
 Every audit flag can also be set in a [config file](/docs/configuration). Flags always take priority over the config file, which takes priority over defaults.
+
+### orino fix
+
+Creates the missing files Orino can generate safely from your route map: `robots`, `sitemap`, and `llms.txt`. It only ever **creates** files. An existing file is never modified or overwritten, so running it twice is harmless. Everything that needs judgement (titles, descriptions, schema) stays in the audit report.
+
+```bash
+npx orino-cli fix --url https://yoursite.com --dry-run
+npx orino-cli fix --url https://yoursite.com
+```
+
+| Flag | Type | Default | Description |
+|------|------|---------|-------------|
+| `--dir <path>` | string | `.` | Project directory to fix |
+| `--url <url>` | string | none | Site URL, used for absolute sitemap and `llms.txt` links |
+| `--no-url` | boolean | none | Ignore any configured URL (sitemaps are then skipped) |
+| `--framework <name>` | string | none | Force framework detection |
+| `--dry-run` | boolean | `false` | Show what would be created without writing anything |
+| `--json` | boolean | `false` | Output the fix plan as JSON |
+
+What gets created, by framework:
+
+| Framework | robots | sitemap | llms.txt |
+|-----------|--------|---------|----------|
+| Next.js (App Router) | `app/robots.ts` | `app/sitemap.ts` | — |
+| Next.js (Pages Router) | `public/robots.txt` | `public/sitemap.xml` | — |
+| Astro | `public/robots.txt` | `public/sitemap.xml` | `public/llms.txt` |
+| Nuxt | `public/robots.txt` | `public/sitemap.xml` | `public/llms.txt` |
+| SvelteKit | `static/robots.txt` | `static/sitemap.xml` | `static/llms.txt` |
+| HTML | `robots.txt` | `sitemap.xml` | `llms.txt` |
+
+Sitemaps list your **static** routes only. Dynamic routes such as `/blog/[slug]` can't be known from the file system, so add those by hand (in `sitemap.ts`, fetch the slugs). A sitemap needs absolute URLs, so it is skipped when no site URL is known from `--url`, your config, or your environment. The generated `llms.txt` has a placeholder summary line: replace it before deploying.
+
+The URL is only used to write links. `orino fix` doesn't fetch anything and works offline.
 
 ### orino baseline
 
