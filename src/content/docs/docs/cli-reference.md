@@ -28,6 +28,7 @@ Runs a full SEO and GEO audit against a project directory, a live URL, or both. 
 | `--report-txt [path]` | string | `./orino-report.txt` | Export plain text report |
 | `--report-md [path]` | string | `./orino-report.md` | Export Markdown report |
 | `--report-pdf [path]` | string | `./orino-report.pdf` | Export PDF report |
+| `--sarif [path]` | string | `./orino.sarif` | Write SARIF 2.1.0 for GitHub Code Scanning |
 
 Valid `--framework` values: `nextjs-app-router`, `nextjs-pages-router`, `astro`, `sveltekit`, `nuxt`, `html`.
 
@@ -202,14 +203,52 @@ Set `CI=true` (most providers do this automatically) and Orino disables all inte
 Always pass `--yes` to `npx` in CI. GitHub Actions runners do not auto-confirm a first-time package install, so a bare `npx orino-cli` fails with `orino: not found` (exit 127). `npx --yes` installs non-interactively.
 :::
 
-A complete GitHub Actions workflow ships with the CLI at `.github/workflows/orino.yml`. It runs the audit, comments the score on pull requests, and fails the check when criticals are found. Copy it into your own repository to get PR score comments out of the box.
+### GitHub Action
 
-Two things that workflow needs in the target repository:
+The Orino repository is also a GitHub Action. It runs the audit and keeps **one** score comment up to date on each pull request (no new comment per push), listing the top critical and warning issues with links to their fix pages. It can also upload findings to Code Scanning so they appear as alerts on the affected files.
 
-- A **`SITE_URL` repository variable** (Settings → Secrets and variables → Actions → Variables) pointing at the site to audit. The job is guarded with `if: vars.SITE_URL != ''`, so it skips cleanly until you set it rather than running against an empty URL.
-- The **`pull-requests: write` permission**, declared at the top of the workflow, so the score comment can be posted. The default `GITHUB_TOKEN` is read-only.
+```yaml
+name: Orino
 
-Optionally add an `ORINO_PSI_KEY` secret to enable PageSpeed checks.
+on: [pull_request]
+
+permissions:
+  contents: read
+  pull-requests: write      # score comment
+  security-events: write    # only needed with sarif: 'true'
+
+jobs:
+  audit:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: tinotenda0/orino@v0.4.0
+        with:
+          url: ${{ vars.SITE_URL }}
+          fail-on: critical
+          sarif: 'true'
+          psi-key: ${{ secrets.ORINO_PSI_KEY }}
+```
+
+| Input | Default | Description |
+|-------|---------|-------------|
+| `url` | none | Live URL to audit. Empty runs a codebase-only audit |
+| `dir` | `.` | Project directory, relative to the repository root |
+| `fail-on` | `critical` | `critical`, `warning`, `any`, or `never` (report only) |
+| `pages` | `0` | Pages to audit beyond the homepage |
+| `baseline` | none | Baseline file. Only new findings count towards `fail-on` |
+| `psi-key` | none | PageSpeed Insights key. Pass a secret |
+| `comment` | `true` | Post and update the score comment on pull requests |
+| `sarif` | `false` | Upload findings to Code Scanning |
+| `version` | the action's tag | CLI version to run. A `v0.4.0` tag runs CLI `0.4.0`; a branch runs `latest` |
+
+Outputs: `score` (0–100), `exit-code`, and `results` (path to the JSON results).
+
+Permissions: the comment needs `pull-requests: write`, and `sarif: 'true'` needs `security-events: write`. The default `GITHUB_TOKEN` is read-only. Code Scanning is free on public repositories; private repositories need GitHub Advanced Security.
+
+:::note[Findings without a file]
+Code Scanning only shows alerts attached to a file. Findings from live URL checks (such as a blocked crawler in the deployed `robots.txt`) and "file is missing" checks are anchored to `package.json` (or `index.html` / `README.md`), with the real location in the alert message.
+:::
 
 Interactive prompts are also disabled when stdout is piped, so you do not need to set `CI` explicitly when using `--json` or `--output`.
 
